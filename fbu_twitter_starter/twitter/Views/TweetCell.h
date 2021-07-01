@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *replyCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *notRetweeted;
+@property (weak, nonatomic) IBOutlet UIImageView *retweeted;
+@property (weak, nonatomic) IBOutlet UIImageView *notFavorited;
+@property (weak, nonatomic) IBOutlet UIImageView *favorited;
 
 @end
 
