@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tweet.h"
+#import "User.h"
 
 @interface TimelineViewController : UIViewController
 

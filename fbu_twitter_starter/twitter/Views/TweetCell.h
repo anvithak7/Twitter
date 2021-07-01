@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
+#import "TimelineViewController.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,13 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
-@property (weak, nonatomic) IBOutlet UILabel *replyCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *notRetweeted;
-@property (weak, nonatomic) IBOutlet UIImageView *retweeted;
-@property (weak, nonatomic) IBOutlet UIImageView *notFavorited;
-@property (weak, nonatomic) IBOutlet UIImageView *favorited;
+@property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *replyButton;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
 @end
 

@@ -12,6 +12,7 @@
 #import "TweetCell.h"
 #import "LoginViewController.h"
 #import "ComposeViewController.h"
+#import "Tweet.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
@@ -84,10 +85,17 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
-    // How to get the tweet I want?
-    Tweet *tweet = self.arrayOfTweets[indexPath.row];
-    cell.userLabel.text = tweet.user.name;
-    cell.tweetLabel.text = tweet.text;
+    Tweet *tweetObj = self.arrayOfTweets[indexPath.row];
+    cell.userLabel.text = tweetObj.user.name;
+    cell.tweetLabel.text = tweetObj.text;
+    NSString *URLString = tweetObj.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:urlData];
+    cell.profilePicture.image = image;
+    cell.screenNameLabel.text = [@"@" stringByAppendingString:tweetObj.user.screenName];
+    cell.dateLabel.text = tweetObj.shortDateString;
+    cell.tweet = tweetObj;
     return cell;
 }
 
