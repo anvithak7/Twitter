@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
++ (void) updateCellFromTweet:(Tweet*) tweetObj;
+
 @end
 
 NS_ASSUME_NONNULL_END

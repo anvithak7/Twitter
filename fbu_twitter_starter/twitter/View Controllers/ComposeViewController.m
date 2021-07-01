@@ -11,6 +11,7 @@
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *userProfileImage;
 
 @end
 
@@ -33,9 +34,12 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 /*

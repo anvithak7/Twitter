@@ -12,6 +12,7 @@
 #import "TweetCell.h"
 #import "LoginViewController.h"
 #import "ComposeViewController.h"
+#import "TweetDetailsViewController.h"
 #import "Tweet.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -77,15 +78,26 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqual:@"composeTweet"]) {
     UINavigationController *navigationController = [segue destinationViewController];
     ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
     composeController.delegate = self;
+    }
+    if ([segue.identifier isEqual:@"tweetDetails"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Tweet *tweet = self.arrayOfTweets[indexPath.row];
+        TweetDetailsViewController *detailViewController = [segue destinationViewController];
+        detailViewController.tweet = tweet; // Passing over tweet to next view controller.
+    }
 }
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     Tweet *tweetObj = self.arrayOfTweets[indexPath.row];
+    // TODO: Use method from Tweet cell
+    //[TweetCell updateCellFromTweet:tweetObj :cell];
     cell.userLabel.text = tweetObj.user.name;
     cell.tweetLabel.text = tweetObj.text;
     NSString *URLString = tweetObj.user.profilePicture;

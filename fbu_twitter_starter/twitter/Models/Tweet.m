@@ -44,8 +44,9 @@
         // Convert String to Date
         NSDate *date = [formatter dateFromString:createdAtOriginalString];
         // Configure output format
+        // Commenting the below two because I want the full date and time.
         formatter.dateStyle = NSDateFormatterShortStyle;
-        formatter.timeStyle = NSDateFormatterNoStyle;
+        formatter.timeStyle = NSDateFormatterShortStyle;
         // Convert Date to String
         self.shortDateString = date.shortTimeAgoSinceNow;
         self.createdAtString = [formatter stringFromDate:date];

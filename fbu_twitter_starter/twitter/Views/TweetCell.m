@@ -99,4 +99,18 @@
     }
 }
 
+- (void) updateCellFromTweet:(Tweet*) tweetObj :(TweetCell*) tweetCell {
+    tweetCell.userLabel.text = tweetObj.user.name;
+    tweetCell.tweetLabel.text = tweetObj.text;
+    NSString *URLString = tweetObj.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:urlData];
+    tweetCell.profilePicture.image = nil;
+    tweetCell.profilePicture.image = image;
+    tweetCell.screenNameLabel.text = [@"@" stringByAppendingString:tweetObj.user.screenName];
+    tweetCell.dateLabel.text = tweetObj.shortDateString;
+    tweetCell.tweet = tweetObj;
+}
+
 @end
