@@ -30,6 +30,8 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    // Tried to change navigation color but I don't like this color for this:
+    //self.navigationController.navigationBar.barTintColor = [UIColor systemBlueColor];
     // Get timeline
     [self loadTweets];
     self.refreshControl = [[UIRefreshControl alloc] init];
