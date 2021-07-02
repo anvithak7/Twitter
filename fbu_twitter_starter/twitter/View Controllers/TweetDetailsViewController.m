@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet UIButton *messageButton;
+@property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 
 @end
 
@@ -38,6 +40,8 @@
     self.profileView.image = nil;
     self.profileView.image = image;
     self.fullDateLabel.text = self.tweet.createdAtString;
+    self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     [self refreshData];
 }
 
@@ -100,9 +104,8 @@
 }
 
 - (void) refreshData {
-    [self.replyButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.replyCount] forState:UIControlStateNormal];
-    [self.retweetButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.retweetCount] forState:UIControlStateNormal];
-    [self.favoriteButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.favoriteCount] forState:UIControlStateNormal];
+    self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     if (self.tweet.retweeted == YES) {
         [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal];
     } if (self.tweet.retweeted == NO) {

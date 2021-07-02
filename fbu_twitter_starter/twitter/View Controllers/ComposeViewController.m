@@ -9,9 +9,10 @@
 #import "ComposeViewController.h"
 #import "APIManager.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileImage;
+@property (weak, nonatomic) IBOutlet UILabel *characterCountLabel;
 
 @end
 
@@ -35,12 +36,22 @@
 }
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.tweetTextView.delegate = self;
+    self.characterCountLabel.text = [[NSString stringWithFormat:@"%lu", self.tweetTextView.text.length] stringByAppendingString:@"/280"];
 }
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    return self.tweetTextView.text.length + (text.length - range.length) <= 280;
+}
+
+
+- (void) textViewDidChange:(UITextView *)textView {
+    self.characterCountLabel.text = [[NSString stringWithFormat:@"%lu", self.tweetTextView.text.length] stringByAppendingString:@"/280"];
+}
+
 
 /*
 #pragma mark - Navigation
