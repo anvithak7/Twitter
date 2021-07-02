@@ -32,7 +32,7 @@ The following **optional** features are implemented:
   - Contains the user header view: picture and tagline
   - Contains a section with the users basic stats: # tweets, # following, # followers
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
-- [ ] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 280) (**1 point**)
+- [X] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 280) (**1 point**)
 - [X] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [ ] User can reply to any tweet, and replies should be prefixed with the username and the reply_id should be set when posting the tweet (**2 points**)
 - [ ] User sees embedded images in tweet if available
@@ -43,6 +43,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- [X] A user cannot type more than 280 characters while composing a tweet.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
