@@ -47,8 +47,9 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How to simplify code when creating a profile view with multiple table views with a user's tweets, their liked tweets, and retweets and display it well.
+2. Using UITextViews for the Tweets and making links and attachments in Tweets show up.
+3. Making placeholder text disappear upon typing. I tried using RSKPlaceholderView, but that seems to be in Swift, and I wasn't able to successfully implement it into my project with the research I did.
 
 ## Video Walkthrough
 
@@ -56,7 +57,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/2FWfN38rVK.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='http://g.recordit.co/B5ne5ICRrq.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
+<img src='http://g.recordit.co/b5B1wMBGX1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/).
 
@@ -64,15 +65,19 @@ GIF created with [Kap](https://getkap.co/).
 
 Describe any challenges encountered while building the app.
 
+Understanding how the Twitter API worked and the syntax for it, as well as trying to constrain everything perfectly within the screens was a challenge, as sometimes, autolayout would raise errors even when every logical constraint I could think of was placed, and having to fix constraints took much longer than placing them. Making the code efficient was also a challenge for this one for me, because of limitations with the given components for the UI and the way Twitter returned some information–even the seemingly simplest of tasks (like placing a profile picture on a new screen (which I did not have time to finish yet)) required extra methods in the APIManager and new endpoints to call, which were difficult to find within Twitter's documentation. Due to some of these issues, some of the features I wanted to add are not yet completed, although I hope to add them soon. I wanted text within a textview to disappear upon typing, but that required additional frameworks, and I couldn't find one easily for Objective C, nor could I unfortunately get the one in Swift working at all. I also had issues with slow network requests that caused unsightly and strange behavior in the time it took to load (everything except the contents of a tweet loading at a time, for example). I aim to find a way to make these faster and better.
+
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [BDBOAuth1Manager](https://github.com/bdbergeron/BDBOAuth1Manager)
+- [DateTools](https://github.com/MatthewYork/DateTools)
 
 ## License
 
-    Copyright [2021] [name of copyright owner]
+    Copyright [2021] []
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
